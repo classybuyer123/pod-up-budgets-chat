@@ -4,11 +4,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Chat from "./pages/Chat";
-import BudgetPods from "./pages/BudgetPods";
-import Earn from "./pages/Earn";
-import MicroInvest from "./pages/MicroInvest";
-import NotFound from "./pages/NotFound";
+import Chat        from "./pages/LovableMVP/Chat";
+import BudgetPods  from "./pages/LovableMVP/BudgetPods";
+import Earn        from "./pages/LovableMVP/Earn";
+import MicroInvest from "./pages/LovableMVP/MicroInvest";
+import NotFound    from "./pages/LovableMVP/NotFound";
 import AppNavigation from "./components/AppNavigation";
 
 const queryClient = new QueryClient();

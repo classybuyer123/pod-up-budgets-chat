@@ -1,11 +1,11 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { MessageCircle, Zap, Users, TrendingUp } from 'lucide-react';
+import { MessageCircle, Zap, Users, TrendingUp, Target } from 'lucide-react';
 
 const AppNavigation = () => {
   const navItems = [
     { to: '/pods', icon: Users, label: 'Pods' },
+    { to: '/budgets', icon: Target, label: 'Budgets' },
     { to: '/', icon: MessageCircle, label: 'Chat' },
     { to: '/micro-invest', icon: TrendingUp, label: 'Invest' },
     { to: '/earn', icon: Zap, label: 'Earn' },

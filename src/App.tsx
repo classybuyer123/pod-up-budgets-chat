@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chat        from "./pages/LovableMVP/Chat";
 import BudgetPods  from "./pages/LovableMVP/BudgetPods";
+import Budgets     from "./pages/LovableMVP/Budgets";
 import Earn        from "./pages/LovableMVP/Earn";
 import MicroInvest from "./pages/LovableMVP/MicroInvest";
 import NotFound    from "./pages/LovableMVP/NotFound";
@@ -19,11 +20,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen bg-slate-900 flex flex-col">
+        <div className="min-h-screen bg-slate-950 flex flex-col">
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Chat />} />
               <Route path="/pods" element={<BudgetPods />} />
+              <Route path="/budgets" element={<Budgets />} />
               <Route path="/micro-invest" element={<MicroInvest />} />
               <Route path="/earn" element={<Earn />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

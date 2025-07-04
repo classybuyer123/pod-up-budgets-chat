@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import openai from './utils/openaiClient';
+import { openai } from './utils/openaiClient';
 
 // Mock ledgers/configs
 const podsLedger: Record<string, any[]> = {};
@@ -70,16 +70,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     userPrompt = 'General chat.';
   }
   try {
-    const completion = await openai.createChatCompletion({
-      model: 'gpt-4',
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4.1-2025-04-14',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt },
       ],
     });
-    const reply = completion.data.choices[0].message?.content || 'Sorry, I could not generate a reply.';
+    const reply = completion.choices[0].message?.content || 'Sorry, I could not generate a reply.';
     return res.status(200).json({ reply, buttons });
   } catch (error) {
     return res.status(500).json({ error: 'Failed to generate reply' });
   }
-} 
+}

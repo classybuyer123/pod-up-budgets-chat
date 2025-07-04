@@ -1,29 +1,33 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import plaidClient from './utils/plaidClient';
 
-// Mock in-memory storage
-const userTokens: Record<string, string> = {};
+interface UserTokens {
+  accessToken: string;
+  itemId: string;
+}
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-  const { public_token, userId } = req.body;
-  if (!public_token || !userId) {
-    return res.status(400).json({ error: 'Missing public_token or userId' });
-  }
+let userTokensStorage: UserTokens | null = null;
+
+export const linkBank = async (): Promise<{ success: boolean; message: string }> => {
   try {
-    const response = await plaidClient.itemPublicTokenExchange({ public_token });
-    userTokens[userId] = response.data.access_token;
-    return res.status(200).json({ success: true });
+    // Simulate bank linking process
+    const mockTokens: UserTokens = {
+      accessToken: 'mock_access_token_' + Date.now(),
+      itemId: 'mock_item_id_' + Date.now()
+    };
+    
+    userTokensStorage = mockTokens;
+    
+    return {
+      success: true,
+      message: 'Bank account linked successfully!'
+    };
   } catch (error) {
-    return res.status(500).json({ error: 'Plaid token exchange failed' });
+    return {
+      success: false,
+      message: 'Failed to link bank account'
+    };
   }
-}
+};
 
-// For mock access in other modules
-declare global {
-  // eslint-disable-next-line no-var
-  var userTokens: typeof userTokens;
-}
-global.userTokens = global.userTokens || userTokens; 
+export const getUserTokens = (): UserTokens | null => {
+  return userTokensStorage;
+};

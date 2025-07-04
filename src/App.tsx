@@ -20,8 +20,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen bg-slate-950 flex flex-col">
-          <div className="flex-1">
+        <div className="min-h-screen bg-slate-950 flex flex-col overflow-hidden">
+          <div className="flex-1 overflow-auto">
             <Routes>
               <Route path="/" element={<Chat />} />
               <Route path="/pods" element={<BudgetPods />} />

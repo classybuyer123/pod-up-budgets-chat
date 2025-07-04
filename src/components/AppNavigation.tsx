@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MessageCircle, Zap, Users, TrendingUp, Target } from 'lucide-react';
@@ -12,21 +13,21 @@ const AppNavigation = () => {
   ];
 
   return (
-    <nav className="bg-slate-900/95 backdrop-blur-md border-t border-slate-700/50 px-6 py-4">
+    <nav className="bg-slate-900/95 backdrop-blur-md border-t border-slate-700/50 px-4 py-2 safe-area-bottom">
       <div className="flex justify-around items-center max-w-md mx-auto">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
             className={({ isActive }) =>
-              `flex flex-col items-center space-y-2 p-4 rounded-xl transition-all duration-300 font-inter font-medium ${
+              `flex flex-col items-center space-y-1 p-3 rounded-xl transition-all duration-300 font-inter font-medium touch-manipulation ${
                 isActive
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25 scale-105'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 active:scale-95'
               }`
             }
           >
-            <item.icon className="h-6 w-6" />
+            <item.icon className="h-5 w-5" />
             <span className="text-xs">{item.label}</span>
           </NavLink>
         ))}

@@ -44,67 +44,83 @@ const pods = [
 ];
 
 const BudgetPods = () => (
-  <div className="flex flex-col min-h-screen bg-slate-950">
-    {/* Header nav */}
-    <nav className="w-full flex items-center gap-2 px-4 py-5 bg-slate-900 border-b border-slate-800 shadow">
-      <div className="flex items-center gap-2">
-        <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-2">
+  <div className="flex flex-col min-h-screen bg-slate-950 relative overflow-hidden">
+    {/* Enhanced background effects */}
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+    <div className="absolute top-1/4 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+    <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+
+    {/* Enhanced Header nav */}
+    <nav className="w-full flex items-center gap-3 px-4 py-6 glass-effect-light border-b border-slate-700/50 shadow-lift relative z-10">
+      <div className="flex items-center gap-3">
+        <span className="inline-flex items-center justify-center rounded-2xl enhanced-gradient p-3 shadow-neon">
           <Group className="text-white" size={24} />
         </span>
-        <span className="text-lg font-bold text-white">Pods</span>
+        <span className="text-xl font-bold text-white font-space-grotesk tracking-tight">Pods</span>
       </div>
     </nav>
-    {/* Pod cards */}
-    <div className="flex flex-col gap-8 w-full max-w-lg mx-auto py-8 px-2 flex-1">
+
+    {/* Enhanced Pod cards */}
+    <div className="flex flex-col gap-8 w-full max-w-lg mx-auto py-8 px-4 flex-1 relative z-10">
       {pods.map((pod, idx) => (
-        <div key={pod.title} className="rounded-2xl bg-slate-900 shadow border border-slate-800 p-6">
-          <div className="flex items-center justify-between mb-2">
+        <div key={pod.title} className="rounded-3xl glass-effect shadow-lift border border-slate-700/50 p-7 hover-lift transition-all duration-500 relative overflow-hidden group">
+          {/* Card background effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+          
+          <div className="flex items-center justify-between mb-3 relative z-10">
             <div className="flex items-center gap-3">
-              <span className="text-xl font-bold text-white">{pod.title}</span>
-              <Badge className="bg-slate-800 text-slate-200 font-semibold px-3 py-1 ml-2 border border-slate-700">{pod.membersPill}</Badge>
+              <span className="text-xl font-bold text-white font-space-grotesk">{pod.title}</span>
+              <Badge className="glass-effect-light text-slate-200 font-semibold px-4 py-1.5 ml-2 border border-slate-600/30 rounded-full font-outfit">{pod.membersPill}</Badge>
             </div>
           </div>
-          <div className="flex items-center gap-2 mb-4">
+
+          <div className="flex items-center gap-2 mb-5 relative z-10">
             {pod.members.map((m, i) => (
-              <Avatar key={m.name} className={`h-8 w-8 border-2 border-slate-800 -ml-2 first:ml-0 ${m.color}`}>
-                <AvatarFallback className={`text-xs font-bold uppercase text-white ${m.color}`}>{m.name[0]}</AvatarFallback>
+              <Avatar key={m.name} className={`h-9 w-9 border-2 border-slate-700/50 -ml-2 first:ml-0 ${m.color} shadow-enhanced hover:scale-110 transition-transform duration-300`}>
+                <AvatarFallback className={`text-sm font-bold uppercase text-white ${m.color} font-outfit`}>{m.name[0]}</AvatarFallback>
               </Avatar>
             ))}
           </div>
-          <div className="mb-4">
-            <ul className="space-y-1">
+
+          <div className="mb-5 relative z-10">
+            <ul className="space-y-2">
               {pod.expenses.map((exp, i) => (
-                <li key={i} className="flex items-center text-slate-200 text-sm">
-                  <span className="font-semibold mr-1">{exp.label}</span>
-                  <span className="mr-1">{exp.amount}</span>
+                <li key={i} className="flex items-center text-slate-200 text-sm font-outfit">
+                  <span className="font-semibold mr-2">{exp.label}</span>
+                  <span className="mr-2 font-bold text-blue-300">{exp.amount}</span>
                   <span className="text-slate-400">by {exp.by}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className={`rounded-xl px-4 py-3 mb-4 font-semibold text-base flex items-center gap-2 border ${pod.balanceBg} ${pod.balanceColor}`}>
+
+          <div className={`rounded-2xl px-5 py-4 mb-5 font-semibold text-base flex items-center gap-2 border glass-effect-light ${pod.balanceColor} font-outfit relative z-10`}>
             {pod.balanceMsg}
           </div>
-          <div className="flex gap-3">
-            <button className="flex items-center gap-1 px-4 py-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold shadow hover:from-blue-700 hover:to-purple-700 transition text-sm">
+
+          <div className="flex gap-3 relative z-10">
+            <button className="flex items-center gap-2 px-5 py-3 rounded-2xl enhanced-gradient text-white font-semibold shadow-neon hover:shadow-neon-lg transition-all duration-300 text-sm hover:scale-105 font-outfit">
               <Plus size={18} /> Add Expense
             </button>
-            <button className="flex items-center gap-1 px-4 py-2 rounded-lg bg-slate-800 text-slate-100 font-semibold shadow hover:bg-slate-700 transition text-sm border border-slate-700">
+            <button className="flex items-center gap-2 px-5 py-3 rounded-2xl glass-effect-light text-slate-100 font-semibold shadow-enhanced hover:scale-105 transition-all duration-300 text-sm border border-slate-600/30 font-outfit">
               Settle Up
             </button>
           </div>
         </div>
       ))}
-      {/* Create New Pod card */}
-      <div className="mt-2 border-2 border-dashed border-blue-600 rounded-2xl flex flex-col items-center justify-center py-10 bg-slate-900 shadow">
-        <div className="mb-3">
-          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-3">
-            <Group className="text-white" size={28} />
+
+      {/* Enhanced Create New Pod card */}
+      <div className="mt-4 border-2 border-dashed border-blue-500/50 rounded-3xl flex flex-col items-center justify-center py-12 glass-effect shadow-lift hover-lift transition-all duration-500 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+        
+        <div className="mb-4 relative z-10">
+          <span className="inline-flex items-center justify-center rounded-2xl enhanced-gradient p-4 shadow-neon animate-float">
+            <Group className="text-white" size={32} />
           </span>
         </div>
-        <div className="text-lg font-bold text-white mb-1">Create New Pod</div>
-        <div className="text-slate-400 mb-4 text-sm">Start a new group for shared expenses</div>
-        <button className="flex items-center gap-2 px-5 py-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold shadow hover:from-blue-700 hover:to-purple-700 transition text-base">
+        <div className="text-xl font-bold text-white mb-2 font-space-grotesk relative z-10">Create New Pod</div>
+        <div className="text-slate-400 mb-6 text-sm font-outfit relative z-10">Start a new group for shared expenses</div>
+        <button className="flex items-center gap-2 px-6 py-3 rounded-2xl enhanced-gradient text-white font-semibold shadow-neon hover:shadow-neon-lg transition-all duration-300 text-base hover:scale-105 font-outfit relative z-10">
           <Plus size={20} /> + Create Pod
         </button>
       </div>

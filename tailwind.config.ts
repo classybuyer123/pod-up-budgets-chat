@@ -22,7 +22,9 @@ export default {
 			fontFamily: {
 				inter: ['Inter', 'system-ui', 'sans-serif'],
 				poppins: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				outfit: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+				'space-grotesk': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+				sans: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -78,7 +80,18 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'3xl': '1.5rem',
+				'4xl': '2rem',
+			},
+			boxShadow: {
+				'glow': '0 0 20px rgba(59, 130, 246, 0.15)',
+				'glow-lg': '0 0 40px rgba(59, 130, 246, 0.2)',
+				'neon': '0 0 15px rgba(168, 85, 247, 0.4)',
+				'neon-lg': '0 0 30px rgba(168, 85, 247, 0.5)',
+				'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+				'glass': '0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2)',
+				'lift': '0 20px 40px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -106,15 +119,36 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-6px)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(59, 130, 246, 0.2)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'message-enter': 'message-slide-in 0.4s ease-out'
+				'message-enter': 'message-slide-in 0.4s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 			},
 			spacing: {
 				'18': '4.5rem'
+			},
+			backdropBlur: {
+				'xs': '2px',
 			}
 		}
 	},

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Briefcase, Upload, Star } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -34,7 +35,7 @@ const Earn = () => {
       {/* Header nav */}
       <nav className="w-full flex items-center gap-2 px-4 py-5 bg-slate-900 border-b border-slate-800 shadow">
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600 to-pink-500 p-2">
+          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-2">
             <Briefcase className="text-white" size={24} />
           </span>
           <span className="text-lg font-bold text-white">Earn</span>
@@ -54,17 +55,17 @@ const Earn = () => {
           ))}
         </div>
         {/* CV Analysis upload card */}
-        <Card className="bg-gradient-to-br from-fuchsia-700 to-pink-500 shadow-lg rounded-2xl border-0">
+        <Card className="bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg rounded-2xl border-0">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-white">AI-Powered CV Analysis</CardTitle>
           </CardHeader>
           <CardContent className="pt-0 pb-4 px-6 flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center border-2 border-dashed border-white/40 rounded-xl py-8 bg-white/5 mb-2">
-              <Upload className="text-fuchsia-200 mb-2" size={32} />
+              <Upload className="text-blue-200 mb-2" size={32} />
               <span className="text-white font-semibold mb-1">Drag & drop your PDF CV</span>
-              <span className="text-fuchsia-100 text-xs">or click to upload</span>
+              <span className="text-blue-100 text-xs">or click to upload</span>
             </div>
-            <Button className="bg-white text-fuchsia-700 font-bold rounded-lg px-6 py-2 mt-2 shadow hover:bg-fuchsia-100 transition">Upload PDF</Button>
+            <Button className="bg-white text-blue-700 font-bold rounded-lg px-6 py-2 mt-2 shadow hover:bg-blue-100 transition">Upload PDF</Button>
           </CardContent>
         </Card>
         {/* Gig cards */}
@@ -74,7 +75,7 @@ const Earn = () => {
               <CardContent className="py-4 px-5">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-lg font-bold text-white">{gig.title}</span>
-                  <span className="text-fuchsia-400 font-semibold text-base">{gig.rate}</span>
+                  <span className="text-blue-400 font-semibold text-base">{gig.rate}</span>
                 </div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-xs text-slate-400">{gig.duration}</span>
@@ -83,7 +84,7 @@ const Earn = () => {
                   </span>
                   <span className="text-xs text-slate-400">by {gig.company}</span>
                 </div>
-                <Button className="bg-fuchsia-600 text-white font-semibold rounded-md px-4 py-1.5 text-sm shadow hover:bg-fuchsia-700 transition mt-1">Apply Now</Button>
+                <Button className="bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold rounded-md px-4 py-1.5 text-sm shadow hover:from-blue-700 hover:to-purple-700 transition mt-1">Apply Now</Button>
               </CardContent>
             </Card>
           ))}
@@ -95,7 +96,7 @@ const Earn = () => {
           </CardHeader>
           <CardContent className="pt-0 pb-4 px-6 flex flex-wrap gap-2">
             {insights.map((insight) => (
-              <div key={insight.tag} className="flex items-center gap-2 bg-slate-800 rounded-full px-4 py-1">
+              <div key={insight.tag} className="flex items-center gap-2 bg-slate-800 rounded-full px-4 py-1 border border-slate-700">
                 <span className="text-sm text-white font-semibold">{insight.tag}</span>
                 <Badge className={`ml-1 ${insight.demand === "Very High" ? "bg-green-700 text-green-200" : insight.demand === "High" ? "bg-yellow-600 text-yellow-100" : "bg-slate-700 text-slate-200"}`}>{insight.demand}</Badge>
               </div>
@@ -103,13 +104,13 @@ const Earn = () => {
           </CardContent>
         </Card>
         {/* Call-out */}
-        <div className="rounded-2xl bg-gradient-to-br from-fuchsia-700 to-pink-500 shadow-lg flex flex-col items-center py-8 px-4 mt-2">
+        <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg flex flex-col items-center py-8 px-4 mt-2">
           <span className="text-2xl font-bold text-white mb-2">Ready to Start Earning?</span>
-          <Button className="bg-white text-fuchsia-700 font-bold rounded-lg px-8 py-3 mt-2 shadow hover:bg-fuchsia-100 transition text-lg">Complete Profile</Button>
+          <Button className="bg-white text-blue-700 font-bold rounded-lg px-8 py-3 mt-2 shadow hover:bg-blue-100 transition text-lg">Complete Profile</Button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Earn; 
+export default Earn;

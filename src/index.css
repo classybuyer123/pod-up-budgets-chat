@@ -53,6 +53,17 @@
     --medium-slate: 217 33% 18%;
     --light-slate: 215 20% 65%;
     --accent-glow: 217 91% 60% / 0.15;
+    
+    /* Modern Financial App Tokens */
+    --neo-black: 220 13% 8%;
+    --neo-dark: 220 13% 12%;
+    --neo-card: 220 13% 15%;
+    --neo-border: 220 13% 20%;
+    --neo-teal: 174 100% 50%;
+    --neo-teal-muted: 174 80% 40%;
+    --neo-green: 142 76% 36%;
+    --neo-text: 210 40% 98%;
+    --neo-text-muted: 215 20% 65%;
   }
 }
 

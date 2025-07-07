@@ -75,7 +75,18 @@ export default {
 					light: 'hsl(var(--peach-end))'
 				},
 				charcoal: 'hsl(var(--charcoal))',
-				'warm-white': 'hsl(var(--warm-white))'
+				'warm-white': 'hsl(var(--warm-white))',
+				neo: {
+					black: 'hsl(var(--neo-black))',
+					dark: 'hsl(var(--neo-dark))',
+					card: 'hsl(var(--neo-card))',
+					border: 'hsl(var(--neo-border))',
+					teal: 'hsl(var(--neo-teal))',
+					'teal-muted': 'hsl(var(--neo-teal-muted))',
+					green: 'hsl(var(--neo-green))',
+					text: 'hsl(var(--neo-text))',
+					'text-muted': 'hsl(var(--neo-text-muted))'
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

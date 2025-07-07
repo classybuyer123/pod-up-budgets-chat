@@ -73,16 +73,16 @@ const Budgets = () => {
     } else if (progress.isComplete && remaining > 0) {
       return {
         status: 'under',
-        color: 'text-green-400',
-        bgColor: 'bg-green-900/20 border-green-700/30',
+        color: 'text-neo-green',
+        bgColor: 'bg-neo-green/20 border-neo-green/30',
         message: `€${remaining.toFixed(2)} saved!`,
         canInvest: true
       };
     } else {
       return {
         status: 'on-track',
-        color: 'text-blue-400',
-        bgColor: 'bg-blue-900/20 border-blue-700/30',
+        color: 'text-neo-teal',
+        bgColor: 'bg-neo-teal/20 border-neo-teal/30',
         message: `€${remaining.toFixed(2)} remaining`,
         canInvest: false
       };
@@ -90,18 +90,18 @@ const Budgets = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-950">
+    <div className="flex flex-col min-h-screen bg-neo-black">
       {/* Header */}
-      <nav className="w-full flex items-center justify-between gap-2 px-4 py-5 bg-slate-900 border-b border-slate-800 shadow">
+      <nav className="w-full flex items-center justify-between gap-2 px-4 py-5 bg-neo-dark border-b border-neo-border shadow-sm">
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-2">
-            <Target className="text-white" size={24} />
+          <span className="inline-flex items-center justify-center rounded-full bg-neo-teal p-2">
+            <Target className="text-neo-black" size={24} />
           </span>
-          <span className="text-lg font-bold text-white">Budgets</span>
+          <span className="text-lg font-bold text-neo-text">Budgets</span>
         </div>
         <Button
           onClick={() => setShowCreator(true)}
-          className="bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold shadow rounded-lg px-4 py-2 text-sm hover:from-blue-700 hover:to-purple-700"
+          className="bg-neo-teal text-neo-black font-semibold shadow rounded-lg px-4 py-2 text-sm hover:bg-neo-teal-muted"
         >
           <Plus className="h-4 w-4 mr-1" />
           New Budget
@@ -116,13 +116,13 @@ const Budgets = () => {
           const spentPercentage = Math.min((budget.spent / budget.weeklyLimit) * 100, 100);
 
           return (
-            <Card key={budget.id} className={`bg-slate-900 border-slate-800 shadow rounded-2xl ${status.bgColor} border`}>
+            <Card key={budget.id} className={`bg-neo-card border-neo-border shadow-sm rounded-2xl ${status.bgColor} border`}>
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                  <CardTitle className="text-lg text-neo-text flex items-center gap-2">
                     {budget.category}
                     {status.status === 'over' && <TrendingUp className="h-5 w-5 text-red-400" />}
-                    {status.status === 'under' && <TrendingDown className="h-5 w-5 text-green-400" />}
+                    {status.status === 'under' && <TrendingDown className="h-5 w-5 text-neo-green" />}
                   </CardTitle>
                   <Badge className={`${status.color} font-semibold bg-transparent border-current`}>
                     {status.message}
@@ -134,32 +134,32 @@ const Budgets = () => {
                 <div className="space-y-4">
                   {/* Budget Progress */}
                   <div>
-                    <div className="flex justify-between text-sm text-slate-300 mb-2">
+                    <div className="flex justify-between text-sm text-neo-text-muted mb-2">
                       <span>€{budget.spent.toFixed(2)} spent</span>
                       <span>€{budget.weeklyLimit.toFixed(2)} budget</span>
                     </div>
                     <Progress 
                       value={spentPercentage} 
-                      className="h-3 bg-slate-800"
+                      className="h-3 bg-neo-border"
                     />
                   </div>
 
                   {/* Week Progress */}
-                  <div className="flex justify-between text-xs text-slate-400">
+                  <div className="flex justify-between text-xs text-neo-text-muted">
                     <span>Day {progress.daysPassed} of 7</span>
                     <span>{progress.daysLeft} days left</span>
                   </div>
 
                   {/* Recent Transactions */}
                   <div className="space-y-2">
-                    <h4 className="text-sm font-semibold text-slate-300">Recent Transactions</h4>
+                    <h4 className="text-sm font-semibold text-neo-text-muted">Recent Transactions</h4>
                     {budget.transactions.slice(-2).map((transaction, index) => (
-                      <div key={index} className="flex justify-between items-center text-sm bg-slate-800/50 rounded-lg p-2">
+                      <div key={index} className="flex justify-between items-center text-sm bg-neo-border/50 rounded-lg p-2">
                         <div>
-                          <span className="text-slate-200">{transaction.merchant}</span>
-                          <p className="text-xs text-slate-400">{transaction.date.toLocaleDateString()}</p>
+                          <span className="text-neo-text">{transaction.merchant}</span>
+                          <p className="text-xs text-neo-text-muted">{transaction.date.toLocaleDateString()}</p>
                         </div>
-                        <span className="text-slate-200 font-medium">€{transaction.amount.toFixed(2)}</span>
+                        <span className="text-neo-text font-medium">€{transaction.amount.toFixed(2)}</span>
                       </div>
                     ))}
                   </div>
@@ -168,7 +168,7 @@ const Budgets = () => {
                   <div className="flex gap-2 mt-4">
                     {status.canInvest && (
                       <Button 
-                        className="flex-1 bg-gradient-to-br from-green-600 to-emerald-600 text-white font-semibold shadow rounded-lg py-2 text-sm hover:from-green-700 hover:to-emerald-700"
+                        className="flex-1 bg-neo-green text-neo-black font-semibold shadow rounded-lg py-2 text-sm hover:bg-neo-green/80"
                       >
                         <ArrowUpRight className="h-4 w-4 mr-1" />
                         Invest Savings
@@ -177,7 +177,7 @@ const Budgets = () => {
                     <Button 
                       onClick={() => setSelectedBudget(budget)}
                       variant="outline"
-                      className="flex-1 border border-slate-600 text-slate-300 bg-slate-800 font-semibold shadow rounded-lg py-2 text-sm hover:bg-slate-700"
+                      className="flex-1 border border-neo-teal text-neo-teal bg-neo-black font-semibold shadow rounded-lg py-2 text-sm hover:bg-neo-dark"
                     >
                       View Analysis
                     </Button>
@@ -190,12 +190,12 @@ const Budgets = () => {
 
         {budgets.length === 0 && (
           <div className="text-center py-12">
-            <Target className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-slate-300 mb-2">No budgets yet</h3>
-            <p className="text-slate-400 mb-6">Create your first budget to start tracking your spending</p>
+            <Target className="h-16 w-16 text-neo-text-muted mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-neo-text mb-2">No budgets yet</h3>
+            <p className="text-neo-text-muted mb-6">Create your first budget to start tracking your spending</p>
             <Button
               onClick={() => setShowCreator(true)}
-              className="bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold shadow rounded-lg px-6 py-3 hover:from-blue-700 hover:to-purple-700"
+              className="bg-neo-teal text-neo-black font-semibold shadow rounded-lg px-6 py-3 hover:bg-neo-teal-muted"
             >
               <Plus className="h-4 w-4 mr-2" />
               Create Budget

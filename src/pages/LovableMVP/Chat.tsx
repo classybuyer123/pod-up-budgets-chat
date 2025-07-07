@@ -41,19 +41,19 @@ const Chat = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-950 relative overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-neo-black relative overflow-hidden">
       {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-neo-teal/5 via-transparent to-neo-green/5 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-neo-teal/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-neo-green/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
 
       {/* Enhanced Header */}
-      <nav className="w-full flex items-center justify-between gap-2 px-4 py-6 glass-effect-light border-b border-slate-700/50 shadow-lift relative z-10">
+      <nav className="w-full flex items-center justify-between gap-2 px-4 py-6 glass-effect-light border-b border-neo-border shadow-sm relative z-10">
         <div className="flex items-center gap-3">
-          <span className="inline-flex items-center justify-center rounded-2xl enhanced-gradient p-3 shadow-neon">
-            <Send className="text-white" size={24} />
+          <span className="inline-flex items-center justify-center rounded-2xl bg-neo-teal p-3 shadow-neon">
+            <Send className="text-neo-black" size={24} />
           </span>
-          <span className="text-xl font-bold text-white font-space-grotesk tracking-tight">💰 BudgetBuddy</span>
+          <span className="text-xl font-bold text-neo-text font-space-grotesk tracking-tight">💰 BudgetBuddy</span>
         </div>
       </nav>
 
@@ -68,8 +68,8 @@ const Chat = () => {
               <div
                 className={`rounded-3xl px-6 py-4 max-w-[85%] text-base font-medium shadow-lift border transition-all duration-500 hover-lift hover:scale-[1.02] ${
                   msg.side === "right"
-                    ? "enhanced-gradient text-white border-blue-300/20 neon-glow"
-                    : "glass-effect text-slate-100 border-slate-600/30 inner-glow"
+                    ? "bg-neo-teal text-neo-black border-neo-teal/20 neon-glow"
+                    : "glass-effect text-neo-text border-neo-border/30 inner-glow"
                 }`}
               >
                 <span className="font-outfit font-medium">{msg.text}</span>
@@ -81,7 +81,7 @@ const Chat = () => {
 
         {/* Enhanced Input */}
         <form
-          className="flex items-center gap-3 glass-effect rounded-2xl px-4 py-3 mb-4 shadow-lift border border-slate-700/50 relative overflow-hidden"
+          className="flex items-center gap-3 glass-effect rounded-2xl px-4 py-3 mb-4 shadow-lift border border-neo-border relative overflow-hidden"
           onSubmit={e => {
             e.preventDefault();
             handleSend();
@@ -89,7 +89,7 @@ const Chat = () => {
         >
           <div className="absolute inset-0 shimmer opacity-20" />
           <input
-            className="flex-1 bg-transparent text-slate-100 placeholder:text-slate-400 border-none outline-none text-base py-3 px-3 font-outfit relative z-10"
+            className="flex-1 bg-transparent text-neo-text placeholder:text-neo-text-muted border-none outline-none text-base py-3 px-3 font-outfit relative z-10"
             placeholder="type ur message bestie… ✨"
             value={input}
             onChange={e => setInput(e.target.value)}
@@ -97,7 +97,7 @@ const Chat = () => {
           />
           <button
             type="submit"
-            className="p-3 rounded-2xl enhanced-gradient text-white flex items-center justify-center transition-all duration-300 shadow-neon hover:shadow-neon-lg hover:scale-110 active:scale-95 relative z-10"
+            className="p-3 rounded-2xl bg-neo-teal text-neo-black flex items-center justify-center transition-all duration-300 shadow-neon hover:shadow-neon-lg hover:scale-110 active:scale-95 relative z-10"
             aria-label="Send"
           >
             <Send size={20} />
@@ -109,7 +109,7 @@ const Chat = () => {
           {quickActions.map((action) => (
             <button
               key={action.label}
-              className="px-5 py-2.5 rounded-2xl glass-effect-light text-slate-100 text-sm font-semibold shadow-enhanced border border-slate-600/30 hover-lift transition-all duration-300 hover:scale-105 active:scale-95 font-outfit"
+              className="px-5 py-2.5 rounded-2xl glass-effect-light text-neo-text text-sm font-semibold shadow-enhanced border border-neo-border hover-lift transition-all duration-300 hover:scale-105 active:scale-95 font-outfit"
               type="button"
             >
               {action.label}

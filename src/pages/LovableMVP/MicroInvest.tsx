@@ -33,35 +33,97 @@ const contributions = [
 ];
 
 const MicroInvest = () => (
-  <div className="flex flex-col min-h-screen bg-slate-950">
+  <div className="flex flex-col min-h-screen bg-black">
     {/* Header nav */}
-    <nav className="w-full flex items-center gap-2 px-4 py-5 bg-slate-900 border-b border-slate-800 shadow">
-      <div className="flex items-center gap-2">
-        <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-2">
-          <ChartBar className="text-white" size={24} />
+    <nav className="w-full flex items-center gap-3 px-6 py-6 bg-black border-b border-gray-800">
+      <div className="flex items-center gap-3">
+        <span className="inline-flex items-center justify-center rounded-2xl bg-teal-500 p-3 shadow-lg">
+          <ChartBar className="text-black" size={24} />
         </span>
-        <span className="text-lg font-bold text-white">Invest</span>
+        <span className="text-2xl font-bold text-white font-space-grotesk">Invest</span>
       </div>
     </nav>
+    
     {/* Main content */}
-    <div className="flex flex-col gap-6 w-full max-w-lg mx-auto py-8 px-2 flex-1">
-      {/* Stat cards */}
+    <div className="flex flex-col gap-8 w-full max-w-md mx-auto py-8 px-6 flex-1">
+      {/* Balance Cards */}
       <div className="grid grid-cols-2 gap-4">
-        {stats.map((stat) => (
-          <Card key={stat.label} className="bg-slate-900 border-slate-800 shadow rounded-xl">
-            <CardContent className="py-4 px-5 flex flex-col items-center">
-              <span className="text-xs text-slate-400 font-medium mb-1">{stat.label}</span>
-              <span className="text-2xl font-bold text-white">{stat.value}</span>
-            </CardContent>
-          </Card>
-        ))}
+        <Card className="bg-gray-900 border-gray-800 rounded-3xl shadow-2xl">
+          <CardContent className="py-6 px-6">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+              <span className="text-sm text-gray-400 font-medium">Total Balance</span>
+            </div>
+            <span className="text-2xl font-bold text-white">$10,000.00</span>
+          </CardContent>
+        </Card>
+        
+        <Card className="bg-gray-900 border-gray-800 rounded-3xl shadow-2xl">
+          <CardContent className="py-6 px-6">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+              <span className="text-sm text-gray-400 font-medium">Balance Last</span>
+            </div>
+            <span className="text-2xl font-bold text-white">$1,000.00</span>
+          </CardContent>
+        </Card>
       </div>
-      {/* Returns card */}
-      <Card className="bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg rounded-2xl border-0">
-        <CardContent className="py-6 px-6 flex flex-col items-center">
-          <span className="text-lg text-white font-semibold mb-1">Total Returns</span>
-          <span className="text-3xl font-bold text-white mb-1">{returns.value}</span>
-          <span className="text-base font-medium text-white/80">{returns.percent}</span>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Card className="bg-gray-900 border-gray-800 rounded-3xl shadow-2xl">
+          <CardContent className="py-6 px-6">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+              <span className="text-sm text-gray-400 font-medium">Budget</span>
+            </div>
+            <span className="text-2xl font-bold text-white">$7,500.00</span>
+          </CardContent>
+        </Card>
+        
+        <Card className="bg-gray-900 border-gray-800 rounded-3xl shadow-2xl">
+          <CardContent className="py-6 px-6">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+              <span className="text-sm text-gray-400 font-medium">Expenses</span>
+            </div>
+            <span className="text-2xl font-bold text-white">$5,950.00</span>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Chart Section */}
+      <Card className="bg-gray-900 border-gray-800 rounded-3xl shadow-2xl">
+        <CardContent className="py-8 px-6">
+          <div className="flex justify-between items-center mb-6">
+            <span className="text-lg text-gray-400 font-medium">Budget</span>
+            <span className="text-2xl font-bold text-white">$5,950.00</span>
+          </div>
+          
+          {/* Mock Chart */}
+          <div className="flex items-end justify-between h-32 gap-2 mb-4">
+            {[40, 60, 30, 80, 50, 90, 70, 85, 95, 75, 60, 45].map((height, i) => (
+              <div key={i} className="flex-1 bg-teal-500 rounded-t-sm opacity-80" style={{ height: `${height}%` }}></div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <span className="text-sm text-gray-400">Expenses</span>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Notification Card */}
+      <Card className="bg-teal-500 border-teal-400 rounded-3xl shadow-2xl">
+        <CardContent className="py-6 px-6">
+          <div className="flex items-start gap-4">
+            <div className="bg-black/20 rounded-full p-2">
+              <span className="text-lg">✨</span>
+            </div>
+            <div>
+              <p className="text-black font-semibold mb-1">NeoSaver analyzes expenses to help you</p>
+              <p className="text-black/80 text-sm">save money and stick to your budget easily!</p>
+            </div>
+          </div>
         </CardContent>
       </Card>
       {/* Settings card */}
